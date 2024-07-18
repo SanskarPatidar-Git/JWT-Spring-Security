@@ -1,4 +1,4 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.token.dto;
 
 
 public class RegisterUserDto {

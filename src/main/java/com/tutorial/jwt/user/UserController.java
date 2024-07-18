@@ -1,4 +1,4 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.user;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tutorial.jwt.UserEntity;
+import com.tutorial.jwt.token.dto.UserEntity;
 
 import java.util.List;
 

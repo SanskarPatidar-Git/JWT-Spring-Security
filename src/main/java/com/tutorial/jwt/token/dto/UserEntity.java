@@ -1,4 +1,4 @@
-package com.tutorial.jwt;
+package com.tutorial.jwt.token.dto;
 
 import java.util.Collection;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.token.utils;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.security.SignatureException;

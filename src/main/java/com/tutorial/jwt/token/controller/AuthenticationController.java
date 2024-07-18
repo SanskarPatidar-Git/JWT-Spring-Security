@@ -1,4 +1,4 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.token.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,7 +6,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tutorial.jwt.UserEntity;
+import com.tutorial.jwt.token.dto.UserEntity;
+import com.tutorial.jwt.token.helper.JwtService;
+import com.tutorial.jwt.token.service.AuthenticationService;
+import com.tutorial.jwt.token.dto.LoginResponse;
+import com.tutorial.jwt.token.dto.LoginUserDto;
+import com.tutorial.jwt.token.dto.RegisterUserDto;
 
 @RequestMapping("/auth")
 @RestController

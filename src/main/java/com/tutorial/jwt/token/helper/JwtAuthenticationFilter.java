@@ -1,4 +1,4 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.token.helper;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

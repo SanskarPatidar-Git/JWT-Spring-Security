@@ -1,9 +1,9 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.user;
 
 import org.springframework.stereotype.Service;
 
-import com.tutorial.jwt.UserEntity;
-import com.tutorial.jwt.UserRepository;
+import com.tutorial.jwt.token.dto.UserEntity;
+import com.tutorial.jwt.token.repo.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;

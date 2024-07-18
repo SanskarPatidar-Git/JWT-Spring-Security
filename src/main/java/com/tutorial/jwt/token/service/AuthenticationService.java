@@ -1,12 +1,15 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.token.service;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.tutorial.jwt.UserEntity;
-import com.tutorial.jwt.UserRepository;
+import com.tutorial.jwt.token.dto.LoginUserDto;
+import com.tutorial.jwt.token.dto.RegisterUserDto;
+import com.tutorial.jwt.token.dto.UserEntity;
+import com.tutorial.jwt.token.repo.UserRepository;
+
 
 @Service
 public class AuthenticationService {

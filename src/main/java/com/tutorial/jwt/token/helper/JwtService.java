@@ -1,4 +1,4 @@
-package com.tutorial.jwt.token;
+package com.tutorial.jwt.token.helper;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
