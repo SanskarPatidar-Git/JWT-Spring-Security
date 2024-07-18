@@ -1,5 +1,6 @@
 package com.tutorial.jwt.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,28 +12,29 @@ import com.tutorial.jwt.token.dto.UserEntity;
 
 import java.util.List;
 
+/*
+ * API's which needs to be authenticated first.
+ * Get a token and pass it into header "Authorization".
+ */
+
 @RequestMapping("/users")
 @RestController
 public class UserController {
-    private final UserService userService;
+	
+	@Autowired
+    private UserService userService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping("/me")
     public ResponseEntity<UserEntity> authenticatedUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         UserEntity currentUser = (UserEntity) authentication.getPrincipal();
-
         return ResponseEntity.ok(currentUser);
     }
 
     @GetMapping("/")
     public ResponseEntity<List<UserEntity>> allUsers() {
         List <UserEntity> users = userService.allUsers();
-
         return ResponseEntity.ok(users);
     }
 }

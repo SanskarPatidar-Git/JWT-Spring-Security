@@ -1,5 +1,8 @@
 package com.tutorial.jwt.token.service;
 
+import java.util.NoSuchElementException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,26 +13,35 @@ import com.tutorial.jwt.token.dto.RegisterUserDto;
 import com.tutorial.jwt.token.dto.UserEntity;
 import com.tutorial.jwt.token.repo.UserRepository;
 
+/* Service for signup and login.
+ * 
+ */
 
 @Service
 public class AuthenticationService {
-    private final UserRepository userRepository;
+	
+	@Autowired
+    private UserRepository userRepository;
     
-    private final PasswordEncoder passwordEncoder;
+	@Autowired
+    private PasswordEncoder passwordEncoder;
     
-    private final AuthenticationManager authenticationManager;
+	@Autowired
+    private AuthenticationManager authenticationManager;
 
-    public AuthenticationService(
-        UserRepository userRepository,
-        AuthenticationManager authenticationManager,
-        PasswordEncoder passwordEncoder
-    ) {
-        this.authenticationManager = authenticationManager;
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
+	//SignUp
     public UserEntity signup(RegisterUserDto input) {
+    	//Check if user already exist
+    	try {
+    		if(userRepository.findByEmail(input.getEmail()).get() != null) {
+        		return null;
+        	}
+    	} catch(NoSuchElementException e) {
+    		
+    	}
+    	
+    	
     	UserEntity user = new UserEntity();
                 user.setFullName(input.getFullName());
                 user.setEmail(input.getEmail());
@@ -38,6 +50,7 @@ public class AuthenticationService {
         return userRepository.save(user);
     }
 
+    //Login
     public UserEntity authenticate(LoginUserDto input) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

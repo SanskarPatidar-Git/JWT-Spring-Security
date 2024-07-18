@@ -2,10 +2,9 @@ package com.tutorial.jwt.token.dto;
 
 
 public class RegisterUserDto {
+	
     private String email;
-    
     private String password;
-    
     private String fullName;
 
     public RegisterUserDto() {

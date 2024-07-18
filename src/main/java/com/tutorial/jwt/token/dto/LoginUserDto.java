@@ -1,8 +1,8 @@
 package com.tutorial.jwt.token.dto;
 
 public class LoginUserDto {
+	
     private String email;
-    
     private String password;
     
     public LoginUserDto() {
